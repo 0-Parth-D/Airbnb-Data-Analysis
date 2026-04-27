@@ -27,14 +27,15 @@ RQ1 and RQ2 use techniques from the course; RQ3 uses Moran's I / LISA (Anselin, 
 - **Source:** [Inside Airbnb](http://insideairbnb.com/get-the-data/) — independent non-commercial scrape of public Airbnb data, city by city.
 - **Scope:** 34 US cities (NYC, Chicago, Boston, Hawaii, Broward County FL, Nashville, Austin, Clark County NV, …), 22 states, **280,673 listings** scraped September–December 2025.
 - **Working columns (13 of 85):** `id, name, description, host_name, host_id, price, neighbourhood_cleansed, latitude, longitude, room_type, accommodates, review_scores_rating, amenities`.
+- **CSV (~300 MB):** [Google Drive link](https://drive.google.com/file/d/1FRzaAkPqsfEHVW0RJmzvm6FZHsCZHU3C/view?usp=sharing). Too large to commit to GitHub; the notebook downloads it automatically via `gdown` if it isn't already cached at `MyDrive/listings.csv`.
 - **Preprocessing performed in the notebook:**
   - `price_clean` parsed from strings like `"$1,250.00"`; `log_price = log(1 + price_clean)`.
   - `amenity_count` parsed from the JSON-style `amenities` field (range 0–122).
   - `city` and `state` reverse-geocoded from `(lat, lon)` via `reverse_geocoder` (offline K-D tree). The formatted CSV is cached on Google Drive and re-loaded on every run.
 - **RQ-specific subsets** (derived from the cleaned master frame, not by global filtering):
   - `df_rq1` — 279,604 rows (99.6%), any row with `host_id` and a non-empty neighbourhood.
-  - `df_rq2` — 157,090 rows (55.9%), priced listings (`0 < price < 99th pct`) with non-null features.
-  - `df_rq3` — 124,647 rows (44.4%), `df_rq2` restricted to the contiguous US (lat 24–50, lon −125 to −66) so the spatial-weights graph stays connected.
+  - `df_rq2` — 158,044 rows (56.3%), priced listings (`0 < price < 99th pct`) with non-null features.
+  - `df_rq3` — 125,601 rows (44.7%), `df_rq2` restricted to the contiguous US (lat 24–50, lon −125 to −66) so the spatial-weights graph stays connected.
 
 ## Results Summary
 
@@ -54,7 +55,8 @@ This project was built and run in **Google Colab** (Python 3.11). To reproduce:
 1. Open [`main_notebook.ipynb`](main_notebook.ipynb) in Colab.
 2. Run cells top-to-bottom. The notebook is self-contained:
    - The first install cell adds the three non-default packages (`!pip install esda libpysal reverse_geocoder -q`).
-   - The data-loading cell reads the cached, formatted CSV from Google Drive (the reverse-geocoding step is pre-computed; you don't need to re-run it).
+   - The data-loading cell looks for a cached `listings*.csv` in `MyDrive/`. If it doesn't find one, it auto-downloads the [public ~300 MB pre-geocoded CSV](https://drive.google.com/file/d/1FRzaAkPqsfEHVW0RJmzvm6FZHsCZHU3C/view?usp=sharing) into `MyDrive/listings.csv` via `gdown` — so a first-time grader doesn't have to do anything manual.
+   - The reverse-geocoding step is pre-computed in that cached CSV; you don't need to re-run it.
    - RQ1 → RQ2 → RQ3 → cross-RQ synthesis run in sequence; later sections depend on earlier outputs.
 3. Pinned package versions are in [`requirements.txt`](requirements.txt) (regenerate with the `!pip freeze` cell at the bottom of the notebook if you want a fresh capture).
 
@@ -82,12 +84,14 @@ The exhaustive list with exact versions lives in [`requirements.txt`](requiremen
 ├── main_notebook.ipynb        <- final curated deliverable (run this)
 ├── requirements.txt           <- pinned environment, exported from Colab
 ├── .gitignore
-└── checkpoints/
-    ├── checkpoint_1.ipynb     <- Project Checkpoint 1 (early data exploration)
-    └── checkpoint_2.ipynb     <- Project Checkpoint 2 (mid-semester progress)
+├── checkpoints/
+│   ├── checkpoint_1.ipynb     <- Project Checkpoint 1 (early data exploration)
+│   └── checkpoint_2.ipynb     <- Project Checkpoint 2 (mid-semester progress)
+└── datasets/
+    └── links                  <- Google Drive links for the raw + pre-geocoded CSVs
 ```
 
-There is no separate `src/`, `scripts/`, or `data/` folder — the notebook reads its cached input CSV directly from Google Drive, and there are no helper modules outside the notebook.
+There is no separate `src/`, `scripts/`, or `data/` folder — the notebook reads its cached input CSV directly from Google Drive (auto-downloaded on first run, see [Reproducing the Work](#reproducing-the-work)), and there are no helper modules outside the notebook.
 
 ## Honor Statement and Citations
 

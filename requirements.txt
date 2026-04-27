@@ -1,27 +1,36 @@
+# Pinned to the Google Colab runtime (Python 3.11) that main_notebook.ipynb was
+# developed against. Regenerate from a fresh Colab session with the cell at the
+# bottom of the notebook:
+#
+#   !pip freeze > requirements.txt
+#
+
 # --- Core data + scientific stack -----------------------------------------
-numpy>=1.26
-pandas>=2.2
-scipy>=1.13
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.13.1
 
 # --- Plotting -------------------------------------------------------------
-matplotlib>=3.8
-seaborn>=0.13
-plotly>=5.20
-folium>=0.16
+matplotlib==3.8.4
+seaborn==0.13.2
+plotly==5.24.1
+folium==0.17.0
 
 # --- RQ1: graph mining ----------------------------------------------------
-networkx>=3.2
+networkx==3.3
 
 # --- RQ2: anomaly detection / ML ------------------------------------------
-scikit-learn>=1.4
-mlxtend>=0.23
+scikit-learn==1.5.2
+mlxtend==0.23.1
+joblib==1.4.2
+threadpoolctl==3.5.0
 
 # --- RQ3: spatial autocorrelation (external technique) --------------------
-esda>=2.5
-libpysal>=4.10
-splot>=1.1
+esda==2.6.0
+libpysal==4.12.1
+splot==1.1.7
 
 # --- Geocoding + scraping helpers used in checkpoints ---------------------
-reverse_geocoder>=1.5
-requests>=2.31
-beautifulsoup4>=4.12
+reverse_geocoder==1.5.1
+requests==2.32.3
+beautifulsoup4==4.12.3

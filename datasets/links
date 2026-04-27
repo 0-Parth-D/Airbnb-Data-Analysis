@@ -1,2 +1,9 @@
-reviews.csv: https://drive.google.com/file/d/1Pkv6C7m1bCvvVg3opAmF__kqlDw7g_CE/view?usp=sharing
-listings.csv: https://drive.google.com/file/d/1Pkv6C7m1bCvvVg3opAmF__kqlDw7g_CE/view?usp=sharing
+# Airbnb US listings — dataset links
+# The pre-geocoded master CSV is ~300 MB, too large to commit to GitHub.
+# main_notebook.ipynb auto-downloads it via gdown on first run.
+
+listings.csv (pre-geocoded master, 280,673 rows x 19 cols, ~300 MB):
+  https://drive.google.com/file/d/1FRzaAkPqsfEHVW0RJmzvm6FZHsCZHU3C/view?usp=sharing
+
+Raw per-city snapshots (Sep–Dec 2025, gzipped):
+  https://insideairbnb.com/get-the-data/
