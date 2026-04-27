@@ -5,7 +5,7 @@
 
 > **Start here:** [`main_notebook.ipynb`](main_notebook.ipynb) — the curated, end-to-end story of the project.
 
-> **Project video:** _TODO: replace with video URL before submission_
+> **Project video:** https://youtu.be/Fb_VxVX3mAA
 
 ## Overview
 
