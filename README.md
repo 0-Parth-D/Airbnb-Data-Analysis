@@ -95,6 +95,6 @@ On my honor, I declare the following resources were used in the preparation of t
 
 - **Collaborators:** None.
 - **Web sources:** Inside Airbnb data assumptions — <https://insideairbnb.com/data-assumptions/>. Used to understand the scraping methodology, data limitations, and the `neighbourhood_cleansed` field semantics.
-- **AI tools:** Perplexity and ChatGPT / Claude — used to draft project structure, refine explanations, draft markdown narration, and generate example pandas / networkx / scikit-learn / esda code snippets. All analytical decisions, results, and interpretations are my own.
+- **AI tools:** Perplexity and ChatGPT / Claude — used to draft project structure, refine explanations, draft markdown narration, and generate example pandas / networkx / scikit-learn / esda code snippets.
 - **Dataset:** Inside Airbnb. (2025). *United States Airbnb Listings* [Dataset]. Retrieved from <http://insideairbnb.com/get-the-data/>. Multiple US cities, scraped September–December 2025. Licensed under CC BY 4.0.
 - **External-technique reference:** Anselin, L. (1995). *Local Indicators of Spatial Association — LISA*. Geographical Analysis, 27(2), 93–115.
