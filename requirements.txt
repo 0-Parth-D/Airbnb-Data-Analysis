@@ -1,0 +1,19 @@
+# Placeholder requirements file.
+#
+# The real, version-pinned file is generated from a Google Colab session by
+# running the last code cell of `main_notebook.ipynb`:
+#
+#     !pip freeze > requirements.txt
+#     from google.colab import files
+#     files.download('requirements.txt')
+#
+# Replace this placeholder with that downloaded file before pushing to GitHub.
+# The notebook was developed against Python 3.11 (Colab default in 2025-2026).
+#
+# The headline packages it relies on are:
+#     pandas, numpy, scipy
+#     matplotlib, seaborn, plotly
+#     networkx
+#     scikit-learn
+#     esda, libpysal
+#     reverse_geocoder
