@@ -1,19 +1,27 @@
-# Placeholder requirements file.
-#
-# The real, version-pinned file is generated from a Google Colab session by
-# running the last code cell of `main_notebook.ipynb`:
-#
-#     !pip freeze > requirements.txt
-#     from google.colab import files
-#     files.download('requirements.txt')
-#
-# Replace this placeholder with that downloaded file before pushing to GitHub.
-# The notebook was developed against Python 3.11 (Colab default in 2025-2026).
-#
-# The headline packages it relies on are:
-#     pandas, numpy, scipy
-#     matplotlib, seaborn, plotly
-#     networkx
-#     scikit-learn
-#     esda, libpysal
-#     reverse_geocoder
+# --- Core data + scientific stack -----------------------------------------
+numpy>=1.26
+pandas>=2.2
+scipy>=1.13
+
+# --- Plotting -------------------------------------------------------------
+matplotlib>=3.8
+seaborn>=0.13
+plotly>=5.20
+folium>=0.16
+
+# --- RQ1: graph mining ----------------------------------------------------
+networkx>=3.2
+
+# --- RQ2: anomaly detection / ML ------------------------------------------
+scikit-learn>=1.4
+mlxtend>=0.23
+
+# --- RQ3: spatial autocorrelation (external technique) --------------------
+esda>=2.5
+libpysal>=4.10
+splot>=1.1
+
+# --- Geocoding + scraping helpers used in checkpoints ---------------------
+reverse_geocoder>=1.5
+requests>=2.31
+beautifulsoup4>=4.12
